@@ -1,0 +1,2 @@
+# KopstootKompanen_Bot
+ INFO
