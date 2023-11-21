@@ -2,9 +2,19 @@
 import praw
 import re
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Create the Reddit instance
-reddit = praw.Reddit('bot1')
+#reddit = praw.Reddit('bot1')
+
+reddit = praw.Reddit(client_id=os.getenv("REDDIT_API_KEY"),
+		     client_secret=os.getenv("REDDIT_API_SECRET"),
+		     user_agent=os.getenv("REDDIT_USERAGENT"),
+		     username=os.getenv("REDDIT_USERNAME"),
+		     password=os.getenv("REDDIT_PASSWORD"))
+
+
 kopstoot_definition = "De Kopstoot Kompanen is een groep van ruim 1000 leden exclusief voor lange mensen. Mannen vanaf 1,95m en vrouwen vanaf 1,80m"
 
 # Have we run this code before? If not, create an empty list
